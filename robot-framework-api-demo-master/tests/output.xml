@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.6 on win32)" generated="20221108 03:42:09.349" rpa="false" schemaversion="3">
+<suite id="s1" name="Wiremock" source="C:\Users\Paolo.Mondelo\Pictures\GI7\robot-framework-api-demo-master\tests\wiremock.robot">
+<kw name="Run Keyword" library="BuiltIn" type="SETUP">
+<arg>Cleanup Sessions</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Cleanup Sessions">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221108 03:42:09.566" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221108 03:42:09.566" endtime="20221108 03:42:09.566"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.566" endtime="20221108 03:42:09.567"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.566" endtime="20221108 03:42:09.567"/>
+</kw>
+<test id="s1-t1" name="Get Request should return a response body that contains a list of Lawyers" line="21">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221108 03:42:09.567" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221108 03:42:09.567" level="DEBUG">Creating session: my_session</msg>
+<status status="PASS" starttime="20221108 03:42:09.567" endtime="20221108 03:42:09.568"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/Lawyer</arg>
+<arg>params=skip=0&amp;take=101</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221108 03:42:09.571" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20221108 03:42:09.581" level="DEBUG">http://localhost:5000 "GET /Lawyer?skip=0&amp;take=101 HTTP/1.1" 307 0</msg>
+<msg timestamp="20221108 03:42:09.582" level="DEBUG">Starting new HTTPS connection (1): localhost:5001</msg>
+<msg timestamp="20221108 03:42:09.616" level="DEBUG">https://localhost:5001 "GET /Lawyer?skip=0&amp;take=101 HTTP/1.1" 200 None</msg>
+<msg timestamp="20221108 03:42:09.617" level="INFO">GET Request : url=http://localhost:5000/Lawyer?skip=0&amp;take=101 (redirected) 
+ path_url=/Lawyer?skip=0&amp;take=101 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221108 03:42:09.617" level="INFO">GET Response : url=https://localhost:5001/Lawyer?skip=0&amp;take=101 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 07 Nov 2022 14:42:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"06b67fb1-6060-454b-9280-e31d9b3dfdc6","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"08697b9a-d024-427e-b101-162725e7444d","firstName":"She ","lastName":"Hulk","companyName":"The Nelson and Murdock law firm"},{"id":"1dea89d8-00de-44db-9800-be620fa61d0a","firstName":"Donald ","lastName":"Hulk","companyName":"Milton, Chadwick &amp; Waters "},{"id":"35ffa66a-dead-4095-9cac-d6e43dc1c236","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"3fa85f64-5717-4562-b3fc-2c963f66afa6","firstName":"Paolo","lastName":"Mondelo","companyName":"The Nelson and Murdock law firm"},{"id":"4b2e014e-6a35-4fe4-85ea-6e67b74f116c","firstName":"Matt","lastName":"Murdock","companyName":"The Nelson and Murdock law firm"},{"id":"4eb942a3-1b70-4515-b914-6d3fa53866f3","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"54d3f9b8-5b90-4812-8716-9ba807665953","firstName":"Mike","lastName":"Ross","companyName":"Ross &amp; Associates"},{"id":"9988c0b3-166d-4226-a5c8-3fcf0b62eca8","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"b9c066e5-b4e2-4564-b202-1890c06df286","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"c28c55db-d84d-40ea-ae03-4696a6fc59e7","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c56d9c19-121a-41ba-a622-7e47a93eb5c8","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"d445a1d1-7579-4069-9d55-eb1f8ccec2a7","firstName":"string","lastName":"string","companyName":"string"},{"id":"ed09000c-3342-4704-8bf4-e03570699591","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"f15942b1-4f7c-482d-8386-eef1fd1f1ff2","firstName":"Sol ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"f49403e2-81bd-4656-98d9-f20a81b798af","firstName":"Harvey ","lastName":"Specter","companyName":"Wakefield-Cady"}] 
+ </msg>
+<msg timestamp="20221108 03:42:09.617" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221108 03:42:09.617" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.568" endtime="20221108 03:42:09.617"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>The Nelson and Murdock law firm</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20221108 03:42:09.618" endtime="20221108 03:42:09.619"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221108 03:42:09.620" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.620" endtime="20221108 03:42:09.621"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.619" endtime="20221108 03:42:09.621"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221108 03:42:09.621" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221108 03:42:09.621" endtime="20221108 03:42:09.622"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.567" endtime="20221108 03:42:09.623"/>
+</test>
+<test id="s1-t2" name="Post Request should create a new json object for the created new lawyer" line="28">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221108 03:42:09.625" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221108 03:42:09.625" level="DEBUG">Creating session: my_session</msg>
+<status status="PASS" starttime="20221108 03:42:09.624" endtime="20221108 03:42:09.625"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{auth_dict}</var>
+<arg>firstName</arg>
+<arg>${firstName}</arg>
+<arg>lastName</arg>
+<arg>${lastName}</arg>
+<arg>companyName</arg>
+<arg>${companyName}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221108 03:42:09.626" level="INFO">&amp;{auth_dict} = { firstName=Uzumaki | lastName=Naruto | companyName=Konoha Law Firm }</msg>
+<status status="PASS" starttime="20221108 03:42:09.625" endtime="20221108 03:42:09.626"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>accept=*/*</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221108 03:42:09.626" level="INFO">${headers} = {'Content-Type': 'application/json', 'accept': '*/*'}</msg>
+<status status="PASS" starttime="20221108 03:42:09.626" endtime="20221108 03:42:09.626"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/Lawyer</arg>
+<arg>json=${auth_dict}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221108 03:42:09.629" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20221108 03:42:09.630" level="DEBUG">http://localhost:5000 "POST /Lawyer HTTP/1.1" 307 0</msg>
+<msg timestamp="20221108 03:42:09.631" level="DEBUG">Starting new HTTPS connection (1): localhost:5001</msg>
+<msg timestamp="20221108 03:42:09.666" level="DEBUG">https://localhost:5001 "POST /Lawyer HTTP/1.1" 200 0</msg>
+<msg timestamp="20221108 03:42:09.667" level="INFO">POST Request : url=http://localhost:5000/Lawyer (redirected) 
+ path_url=/Lawyer 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '80'} 
+ body=b'{"firstName": "Uzumaki", "lastName": "Naruto", "companyName": "Konoha Law Firm"}' 
+ </msg>
+<msg timestamp="20221108 03:42:09.667" level="INFO">POST Response : url=https://localhost:5001/Lawyer 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 07 Nov 2022 14:42:09 GMT', 'Server': 'Kestrel', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221108 03:42:09.667" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221108 03:42:09.667" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.626" endtime="20221108 03:42:09.667"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221108 03:42:09.670" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.669" endtime="20221108 03:42:09.670"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.668" endtime="20221108 03:42:09.670"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221108 03:42:09.671" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221108 03:42:09.670" endtime="20221108 03:42:09.672"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.624" endtime="20221108 03:42:09.672"/>
+</test>
+<test id="s1-t3" name="Get Request should use an ID and should return a specific lawyer" line="36">
+<kw name="Get a list of Lawyers">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221108 03:42:09.675" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221108 03:42:09.675" level="DEBUG">Creating session: my_session</msg>
+<status status="PASS" starttime="20221108 03:42:09.675" endtime="20221108 03:42:09.675"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/Lawyer</arg>
+<arg>params=skip=0&amp;take=101</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221108 03:42:09.676" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20221108 03:42:09.677" level="DEBUG">http://localhost:5000 "GET /Lawyer?skip=0&amp;take=101 HTTP/1.1" 307 0</msg>
+<msg timestamp="20221108 03:42:09.678" level="DEBUG">Starting new HTTPS connection (1): localhost:5001</msg>
+<msg timestamp="20221108 03:42:09.707" level="DEBUG">https://localhost:5001 "GET /Lawyer?skip=0&amp;take=101 HTTP/1.1" 200 None</msg>
+<msg timestamp="20221108 03:42:09.708" level="INFO">GET Request : url=http://localhost:5000/Lawyer?skip=0&amp;take=101 (redirected) 
+ path_url=/Lawyer?skip=0&amp;take=101 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221108 03:42:09.708" level="INFO">GET Response : url=https://localhost:5001/Lawyer?skip=0&amp;take=101 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 07 Nov 2022 14:42:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"06b67fb1-6060-454b-9280-e31d9b3dfdc6","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"08697b9a-d024-427e-b101-162725e7444d","firstName":"She ","lastName":"Hulk","companyName":"The Nelson and Murdock law firm"},{"id":"1dea89d8-00de-44db-9800-be620fa61d0a","firstName":"Donald ","lastName":"Hulk","companyName":"Milton, Chadwick &amp; Waters "},{"id":"35ffa66a-dead-4095-9cac-d6e43dc1c236","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"3fa85f64-5717-4562-b3fc-2c963f66afa6","firstName":"Paolo","lastName":"Mondelo","companyName":"The Nelson and Murdock law firm"},{"id":"4b2e014e-6a35-4fe4-85ea-6e67b74f116c","firstName":"Matt","lastName":"Murdock","companyName":"The Nelson and Murdock law firm"},{"id":"4eb942a3-1b70-4515-b914-6d3fa53866f3","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"54d3f9b8-5b90-4812-8716-9ba807665953","firstName":"Mike","lastName":"Ross","companyName":"Ross &amp; Associates"},{"id":"9988c0b3-166d-4226-a5c8-3fcf0b62eca8","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"b5d51c2f-c085-4721-ae0a-07e1bb077ffd","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b9c066e5-b4e2-4564-b202-1890c06df286","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"c28c55db-d84d-40ea-ae03-4696a6fc59e7","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c56d9c19-121a-41ba-a622-7e47a93eb5c8","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"d445a1d1-7579-4069-9d55-eb1f8ccec2a7","firstName":"string","lastName":"string","companyName":"string"},{"id":"ed09000c-3342-4704-8bf4-e03570699591","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"f15942b1-4f7c-482d-8386-eef1fd1f1ff2","firstName":"Sol ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"f49403e2-81bd-4656-98d9-f20a81b798af","firstName":"Harvey ","lastName":"Specter","companyName":"Wakefield-Cady"}] 
+ </msg>
+<msg timestamp="20221108 03:42:09.708" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221108 03:42:09.708" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.675" endtime="20221108 03:42:09.709"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.674" endtime="20221108 03:42:09.709"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221108 03:42:09.710" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221108 03:42:09.710" level="DEBUG">Creating session: my_session</msg>
+<status status="PASS" starttime="20221108 03:42:09.709" endtime="20221108 03:42:09.710"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/Lawyer/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221108 03:42:09.712" level="DEBUG">Starting new HTTP connection (1): localhost:5000</msg>
+<msg timestamp="20221108 03:42:09.714" level="DEBUG">http://localhost:5000 "GET /Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 HTTP/1.1" 307 0</msg>
+<msg timestamp="20221108 03:42:09.715" level="DEBUG">Starting new HTTPS connection (1): localhost:5001</msg>
+<msg timestamp="20221108 03:42:09.745" level="DEBUG">https://localhost:5001 "GET /Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 HTTP/1.1" 200 None</msg>
+<msg timestamp="20221108 03:42:09.746" level="INFO">GET Request : url=http://localhost:5000/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 (redirected) 
+ path_url=/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221108 03:42:09.746" level="INFO">GET Response : url=https://localhost:5001/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 07 Nov 2022 14:42:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"54d3f9b8-5b90-4812-8716-9ba807665953","firstName":"Mike","lastName":"Ross","companyName":"Ross &amp; Associates"} 
+ </msg>
+<msg timestamp="20221108 03:42:09.746" level="INFO">C:\Python39\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'localhost'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221108 03:42:09.746" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221108 03:42:09.711" endtime="20221108 03:42:09.746"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expectedFirstName}</arg>
+<arg>${response.json()}[firstName]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221108 03:42:09.748" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg timestamp="20221108 03:42:09.748" level="FAIL">Ross != Mike</msg>
+<msg timestamp="20221108 03:42:09.748" level="DEBUG">Traceback (most recent call last):
+  None
+AssertionError: Ross != Mike</msg>
+<status status="FAIL" starttime="20221108 03:42:09.747" endtime="20221108 03:42:09.748"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<status status="NOT RUN" starttime="20221108 03:42:09.748" endtime="20221108 03:42:09.748"/>
+</kw>
+<status status="FAIL" starttime="20221108 03:42:09.674" endtime="20221108 03:42:09.749">Ross != Mike</status>
+</test>
+<kw name="Run Keyword" library="BuiltIn" type="TEARDOWN">
+<arg>Cleanup Sessions</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Cleanup Sessions">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221108 03:42:09.750" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221108 03:42:09.750" endtime="20221108 03:42:09.754"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.750" endtime="20221108 03:42:09.754"/>
+</kw>
+<status status="PASS" starttime="20221108 03:42:09.750" endtime="20221108 03:42:09.754"/>
+</kw>
+<status status="FAIL" starttime="20221108 03:42:09.350" endtime="20221108 03:42:09.755"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="Wiremock">Wiremock</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

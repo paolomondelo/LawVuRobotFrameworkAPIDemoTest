@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "d61ea6dc-11cd-4521-9e5a-04d71d6beb36",
+		"name": "LV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Lawyer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/Lawyer?skip=0&take=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"Lawyer"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "take",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Lawyer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":\"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\"firstName\":\"Paolo\",\"lastName\":\"Mondelo\",\"companyName\":\"The Nelson and Murdock law firm\"}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/Lawyer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"Lawyer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lawyer {id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/Lawyer/08697b9a-d024-427e-b101-162725e7444d",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"Lawyer",
+						"08697b9a-d024-427e-b101-162725e7444d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post LegalMatter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \r\n  \"matterName\": \"Murder\",\r\n  \"lawyerId\": \"08697b9a-d024-427e-b101-162725e7444d\",\r\n  \"lawyerCompanyName\": \"The Nelson and Murdock law firm\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/LegalMatter",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"LegalMatter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LegalMatter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/LegalMatter?skip=0&take=100",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"LegalMatter"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "take",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch LegalMatter",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ids\":[\"3fa85f64-5717-4562-b3fc-2c963f66afa6\"],\"lawyerId\":\"3fa85f64-5717-4562-b3fc-2c963f66afa6\"}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/LegalMatter",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"LegalMatter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LegalMatter {id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/LegalMatter/595cec12-1177-4e47-98f3-b98811de46c2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"LegalMatter",
+						"595cec12-1177-4e47-98f3-b98811de46c2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
