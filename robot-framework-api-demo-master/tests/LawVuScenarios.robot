@@ -12,7 +12,7 @@ Suite Teardown    Run Keyword    Cleanup Sessions
 Get Request should return a response body that contains a list of Lawyers
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
-    ${response}    GET On Session   my_session  ${lawyer_url}  params=skip=0&take=101
+    ${response}    GET On Session   my_session  /${lawyer_url}  params=skip=0&take=101
     Should Contain  ${response.text}  ${TC1_Expected_Result}
     Response Status Code Should Be    ${response}    200
     Delete All Sessions
