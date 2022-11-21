@@ -22,14 +22,14 @@ Post Request should create a new json object for the created new lawyer
     Create Session    my_session    ${HOST1}
     &{auth_dict}=    Create Dictionary    firstName    ${firstName}    lastName    ${lastName}  companyName  ${companyName}
     &{headers}=  Create Dictionary  Content-Type=application/json  accept=*/*
-    ${response}    POST On Session   my_session  ${lawyer_url}  json=${auth_dict}    headers=${headers}
+    ${response}    POST On Session   my_session  /${lawyer_url}  json=${auth_dict}    headers=${headers}
     Response Status Code Should Be    ${response}    200
     Delete All Sessions
 
 Get Request should use an ID and should return a specific lawyer
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
-    ${response}    GET On Session   my_session  ${lawyer_url}/${id}
+    ${response}    GET On Session   my_session  /${lawyer_url}/${id}
     Should Be Equal As Strings  ${expectedFirstNameLawyer}  ${response.json()}[firstName]
     Response Status Code Should Be    ${response}    200
 
@@ -38,7 +38,7 @@ Post Request should create a legal matter
     Create Session    my_session    ${HOST1}
     &{auth_dict}=    Create Dictionary    matterName  ${matterName}    lawyerId    ${lawyerId}  lawyerCompanyName  ${lawyerCompanyName}
     ${headers}=  Create Dictionary  Content-Type=application/json  accept=*/*
-    ${response}    POST On Session   my_session  /LegalMatter  json=${auth_dict}    headers=${headers}
+    ${response}    POST On Session   my_session  /${legalmatter_url}  json=${auth_dict}    headers=${headers}
     Response Status Code Should Be    ${response}    200
     Delete All Sessions
 
@@ -53,7 +53,7 @@ Get Request should retrieve a LegalMatter (Individual and pagination)
 Get Request should retrieve a LegalMatter (Individual and pagination) via ID
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
-    ${response}    GET On Session   my_session  ${legalmatter_url}/${legalMatterId}
+    ${response}    GET On Session   my_session  /${legalmatter_url}/${legalMatterId}
     Should Be Equal As Strings  ${expectedMatterName}  ${response.json()}[matterName]
     Response Status Code Should Be    ${response}    200
 
@@ -61,7 +61,7 @@ Patch Request should Assign a lawyer to a legal matter
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
     &{headers}=  Create Dictionary  Content-Type=application/json  accept=*/*
-    ${response}    PATCH On Session   my_session  ${legalmatter_url}  data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerId}"}    headers=${headers}
+    ${response}    PATCH On Session   my_session  /${legalmatter_url}  data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerId}"}    headers=${headers}
     Response Status Code Should Be    ${response}    200
     Delete All Sessions
 
@@ -69,19 +69,19 @@ Patch Request should NOT Assign a lawyer to a legal matter when user uses a non 
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
     &{headers}=  Create Dictionary  Content-Type=application/json  accept=*/*
-    ${response}    PATCH On Session   my_session  ${legalmatter_url}  data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerIdNonExisting}"}    headers=${headers}  expected_status=400
+    ${response}    PATCH On Session   my_session  /${legalmatter_url}  data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerIdNonExisting}"}    headers=${headers}  expected_status=400
     Delete All Sessions
 
 Get Request should NOT retrieve a LegalMatter (Individual and pagination) via ID
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
-    ${response}    GET On Session   my_session  ${legalmatter_url}/${legalMatterIdNonExisting}  expected_status=404
+    ${response}    GET On Session   my_session  /${legalmatter_url}/${legalMatterIdNonExisting}  expected_status=404
     Response Status Code Should Be    ${response}    404
 
 Get Request should NOT return a specific lawyer when user uses a non existing Lawyer ID
     [Tags]   Smoke
     Create Session    my_session    ${HOST1}
-    ${response}    GET On Session   my_session  ${lawyer_url}/${matterlawyerIdNonExisting}  expected_status=404
+    ${response}    GET On Session   my_session  /${lawyer_url}/${matterlawyerIdNonExisting}  expected_status=404
     Response Status Code Should Be    ${response}    404
 
 *** Keywords ***
