@@ -41,7 +41,7 @@ Post Request should create a legal matter
     Delete All Sessions
 
 Get Request should retrieve a LegalMatter (Individual and pagination)
-    [Tags]   Smoke1
+    [Tags]   Smoke
     Create Session    my_session    ${HOST1}
     ${response}    GET On Session   my_session  /LegalMatter  params=skip=0&take=101
     Should Contain  ${response.text}  Saul Goodman & Associates
