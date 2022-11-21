@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.9.6 on win32)" generated="20221121 18:33:37.868" rpa="false" schemaversion="3">
+<suite id="s1" name="LawVuScenarios" source="C:\Users\Paolo.Mondelo\Pictures\LawVuRobotFrameworkAPIDemoTest\robot-framework-api-demo-master\tests\LawVuScenarios.robot">
+<kw name="Run Keyword" library="BuiltIn" type="SETUP">
+<arg>Cleanup Sessions</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Cleanup Sessions">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.271" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.271" endtime="20221121 18:33:38.273"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.271" endtime="20221121 18:33:38.273"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.270" endtime="20221121 18:33:38.274"/>
+</kw>
+<test id="s1-t1" name="Get Request should return a response body that contains a list of Lawyers" line="12">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.276" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.275" endtime="20221121 18:33:38.277"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>${lawyer_url}</arg>
+<arg>params=skip=0&amp;take=101</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.348" level="INFO">GET Request : url=http://localhost:5000/Lawyer?skip=0&amp;take=101 (redirected) 
+ path_url=/Lawyer?skip=0&amp;take=101 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.348" level="INFO">GET Response : url=https://localhost:5001/Lawyer?skip=0&amp;take=101 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:37 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"06b67fb1-6060-454b-9280-e31d9b3dfdc6","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"08697b9a-d024-427e-b101-162725e7444d","firstName":"She ","lastName":"Hulk","companyName":"The Nelson and Murdock law firm"},{"id":"0eb848d6-7670-4a83-a94d-4d01d7d0af73","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"12feebdd-61da-4dc6-9991-70c9bb87eb63","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"1dea89d8-00de-44db-9800-be620fa61d0a","firstName":"Donald ","lastName":"Hulk","companyName":"Milton, Chadwick &amp; Waters "},{"id":"1ea241dc-fcec-4b6a-938b-f409141d89fc","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"20648c0f-cbaf-4f28-99bd-74d85f9536ba","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"3533488f-e30c-4e45-8a53-0d832eceba92","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"35ffa66a-dead-4095-9cac-d6e43dc1c236","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"384df70c-14d2-420f-b58e-5e591542021c","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"3fa85f64-5717-4562-b3fc-2c963f66afa6","firstName":"Paolo","lastName":"Mondelo","companyName":"The Nelson and Murdock law firm"},{"id":"444347bf-84f4-45ee-b210-6e2bba0bc9a0","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"4b2e014e-6a35-4fe4-85ea-6e67b74f116c","firstName":"Matt","lastName":"Murdock","companyName":"The Nelson and Murdock law firm"},{"id":"4b90a3b0-5e17-45cc-bed5-b7ca60a2e0d3","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"4eb942a3-1b70-4515-b914-6d3fa53866f3","firstName":"xxx","lastName":"xxx","companyName":"xxx"},{"id":"54d3f9b8-5b90-4812-8716-9ba807665953","firstName":"Mike","lastName":"Ross","companyName":"Ross &amp; Associates"},{"id":"57ae9e37-b1b4-4b5b-ba96-61defa21533a","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"5d7a64d6-c435-4182-b1ba-77e5831573e4","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"5eab532f-00f7-49f1-9530-6112dc50b010","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"69e39a4f-64bc-4feb-959d-07aaf30e16c7","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"730ecdf6-16fd-44bf-a597-4d8df26cd973","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"731c40d0-59b2-43d4-a245-a6ac8fe512aa","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"811721ba-eba8-43e6-a5f7-6923ebe85ee6","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"8cded098-dd46-47b8-8b94-46ccbe10544f","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"994e91f2-67f7-41e1-abb2-6fc0ca5e7ec3","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"9988c0b3-166d-4226-a5c8-3fcf0b62eca8","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"9a17b21a-bad0-4949-bf3e-7be4dd743c02","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"a2dcb9c7-5d8a-4716-bc74-7e89d7e72df7","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"a6fbcc27-3097-46be-9470-bd0a00ea4b4e","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"a9a2b8ec-be19-42f1-afe9-c7b47e1db7bc","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"ab34b450-9484-4f42-b7f8-8ce4ad8630d2","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b5d51c2f-c085-4721-ae0a-07e1bb077ffd","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b62d088e-f12d-4948-92ee-e083c1052837","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b8946dad-90a2-4924-872d-f1f0d3d47045","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b9828853-73c1-4ad1-a691-0ea35b3ddc2f","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"b9c066e5-b4e2-4564-b202-1890c06df286","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","firstName":"Saul ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"c03742a8-804f-4f89-aaf8-d830c2cd6197","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c28c55db-d84d-40ea-ae03-4696a6fc59e7","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"c56d9c19-121a-41ba-a622-7e47a93eb5c8","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"cfdb0f46-e033-4854-bacd-0ee561976af4","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"d445a1d1-7579-4069-9d55-eb1f8ccec2a7","firstName":"string","lastName":"string","companyName":"string"},{"id":"e37ffc0a-246b-471e-a786-bc8ecbbf13e2","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"ed09000c-3342-4704-8bf4-e03570699591","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"f15942b1-4f7c-482d-8386-eef1fd1f1ff2","firstName":"Sol ","lastName":"Goodman","companyName":"Saul Goodman &amp; Associates"},{"id":"f49403e2-81bd-4656-98d9-f20a81b798af","firstName":"Harvey ","lastName":"Specter","companyName":"Wakefield-Cady"},{"id":"fce732f2-a587-40ea-8b12-c8e9a7f5cfc2","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"},{"id":"ff046191-bc70-4999-bb04-cc74dbce68ca","firstName":"Uzumaki","lastName":"Naruto","companyName":"Konoha Law Firm"}] 
+ </msg>
+<msg timestamp="20221121 18:33:38.349" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.277" endtime="20221121 18:33:38.349"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${TC1_Expected_Result}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20221121 18:33:38.349" endtime="20221121 18:33:38.351"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.354" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.352" endtime="20221121 18:33:38.354"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.351" endtime="20221121 18:33:38.354"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.355" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.354" endtime="20221121 18:33:38.358"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.274" endtime="20221121 18:33:38.359"/>
+</test>
+<test id="s1-t2" name="Post Request should create a new json object for the created new lawyer" line="20">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.361" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.361" endtime="20221121 18:33:38.361"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{auth_dict}</var>
+<arg>firstName</arg>
+<arg>${firstName}</arg>
+<arg>lastName</arg>
+<arg>${lastName}</arg>
+<arg>companyName</arg>
+<arg>${companyName}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.363" level="INFO">&amp;{auth_dict} = { firstName=Uzumaki | lastName=Naruto | companyName=Konoha Law Firm }</msg>
+<status status="PASS" starttime="20221121 18:33:38.362" endtime="20221121 18:33:38.363"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>accept=*/*</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.365" level="INFO">&amp;{headers} = { Content-Type=application/json | accept=*/* }</msg>
+<status status="PASS" starttime="20221121 18:33:38.364" endtime="20221121 18:33:38.365"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${lawyer_url}</arg>
+<arg>json=${auth_dict}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.436" level="INFO">POST Request : url=http://localhost:5000/Lawyer (redirected) 
+ path_url=/Lawyer 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '80'} 
+ body=b'{"firstName": "Uzumaki", "lastName": "Naruto", "companyName": "Konoha Law Firm"}' 
+ </msg>
+<msg timestamp="20221121 18:33:38.437" level="INFO">POST Response : url=https://localhost:5001/Lawyer 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Server': 'Kestrel', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.437" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.369" endtime="20221121 18:33:38.437"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.439" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.438" endtime="20221121 18:33:38.440"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.437" endtime="20221121 18:33:38.440"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.441" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.440" endtime="20221121 18:33:38.443"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.359" endtime="20221121 18:33:38.444"/>
+</test>
+<test id="s1-t3" name="Get Request should use an ID and should return a specific lawyer" line="29">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.446" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.446" endtime="20221121 18:33:38.447"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${lawyer_url}/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.532" level="INFO">GET Request : url=http://localhost:5000/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 (redirected) 
+ path_url=/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.532" level="INFO">GET Response : url=https://localhost:5001/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665953 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"54d3f9b8-5b90-4812-8716-9ba807665953","firstName":"Mike","lastName":"Ross","companyName":"Ross &amp; Associates"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.532" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.447" endtime="20221121 18:33:38.532"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expectedFirstNameLawyer}</arg>
+<arg>${response.json()}[firstName]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20221121 18:33:38.533" endtime="20221121 18:33:38.535"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.537" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.536" endtime="20221121 18:33:38.538"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.535" endtime="20221121 18:33:38.538"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.444" endtime="20221121 18:33:38.538"/>
+</test>
+<test id="s1-t4" name="Post Request should create a legal matter" line="36">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.540" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.539" endtime="20221121 18:33:38.540"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{auth_dict}</var>
+<arg>matterName</arg>
+<arg>${matterName}</arg>
+<arg>lawyerId</arg>
+<arg>${lawyerId}</arg>
+<arg>lawyerCompanyName</arg>
+<arg>${lawyerCompanyName}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.541" level="INFO">&amp;{auth_dict} = { matterName=Arson | lawyerId=c00a951d-92cd-41c7-8b8d-e867c1f1f1bc | lawyerCompanyName=Saul Goodman &amp; Associates }</msg>
+<status status="PASS" starttime="20221121 18:33:38.540" endtime="20221121 18:33:38.541"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>accept=*/*</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.541" level="INFO">${headers} = {'Content-Type': 'application/json', 'accept': '*/*'}</msg>
+<status status="PASS" starttime="20221121 18:33:38.541" endtime="20221121 18:33:38.541"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${legalmatter_url}</arg>
+<arg>json=${auth_dict}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.611" level="INFO">POST Request : url=http://localhost:5000/LegalMatter (redirected) 
+ path_url=/LegalMatter 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '125'} 
+ body=b'{"matterName": "Arson", "lawyerId": "c00a951d-92cd-41c7-8b8d-e867c1f1f1bc", "lawyerCompanyName": "Saul Goodman &amp; Associates"}' 
+ </msg>
+<msg timestamp="20221121 18:33:38.611" level="INFO">POST Response : url=https://localhost:5001/LegalMatter 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Server': 'Kestrel', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.612" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.542" endtime="20221121 18:33:38.612"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.615" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.613" endtime="20221121 18:33:38.615"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.612" endtime="20221121 18:33:38.616"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.617" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.616" endtime="20221121 18:33:38.621"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.539" endtime="20221121 18:33:38.622"/>
+</test>
+<test id="s1-t5" name="Get Request should retrieve a LegalMatter (Individual and pagination)" line="45">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.624" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.623" endtime="20221121 18:33:38.624"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>${legalmatter_url}</arg>
+<arg>params=skip=0&amp;take=101</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.690" level="INFO">GET Request : url=http://localhost:5000/LegalMatter?skip=0&amp;take=101 (redirected) 
+ path_url=/LegalMatter?skip=0&amp;take=101 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.690" level="INFO">GET Response : url=https://localhost:5001/LegalMatter?skip=0&amp;take=101 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body=[{"id":"08697b9a-d024-427e-b101-162725e7444d","matterName":"Arson","lawyerId":"08697b9a-d024-427e-b101-162725e7444d","lawyerCompanyName":"The Nelson and Murdock law firm"},{"id":"102c9bd8-05d6-4716-8711-4f913d2602d2","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"10793b72-24c2-4e19-b334-63acb87133e2","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"16831b6b-3f6b-4d0b-a050-77b32d55a541","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"1b225ce5-040e-45ae-979a-b030aa960527","matterName":null,"lawyerId":null,"lawyerCompanyName":null},{"id":"1ec4f91a-65f0-49f7-8e75-eb597df3121c","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"33020c76-44ca-4058-b22f-1e844666cc62","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"377eca9a-b3ee-4a8b-b2d5-9631c14cf0d8","matterName":"Drugs Distribution","lawyerId":null,"lawyerCompanyName":null},{"id":"3d67d90a-d93c-4c71-aa75-4ffdd96a296d","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"3e4957e4-0c55-4925-98ba-724c0bff2e20","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"3f67b61b-9c24-43f5-8583-59edd3ce4f9f","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"3fa849c7-a671-4bb7-ad8d-8c6275b36bed","matterName":"Terrorism","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"3fa85f64-5717-4562-b3fc-2c963f66afa6","matterName":"string","lawyerId":"3fa85f64-5717-4562-b3fc-2c963f66afa6","lawyerCompanyName":"The Nelson and Murdock law firm"},{"id":"46781f39-9f27-4392-95d8-09122f98c2a6","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"4c730436-1f63-42ef-abfb-6660e6977634","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"595cec12-1177-4e47-98f3-b98811de46c2","matterName":"Drugs Distribution","lawyerId":"08697b9a-d024-427e-b101-162725e7444d","lawyerCompanyName":"The Nelson and Murdock law firm"},{"id":"7aed7748-f6d3-40a5-b5c3-a1392175bdd6","matterName":null,"lawyerId":null,"lawyerCompanyName":null},{"id":"7fbf48d7-cf37-46dd-b78f-627a2b4abbf4","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"8056b25a-6e22-47d0-9bfe-cf9a209a36b3","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"8adb479f-9c3e-4e2d-bdde-4372c035449f","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"a46cd09e-2796-4350-bd48-6f8dab6af1a3","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"a5447569-7468-430d-965c-9acb8c325416","matterName":"Terrorism","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"a600d7c1-85cd-42bf-b931-dcbac1707ce1","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"a704d0b2-4edf-4fa5-87e4-d78baaed4136","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"afc2d5e5-75e9-4b4d-8940-87936a4719d7","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"b2d61d47-d2d3-41fa-85ee-bb0d8b46e10e","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"b442f218-8792-4b6f-8fd6-5ad56f8ab856","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"b5de7950-d5e6-4a07-b6a2-9865ed49f22f","matterName":"string","lawyerId":"3fa85f64-5717-4562-b3fc-2c963f66afa6","lawyerCompanyName":"The Nelson and Murdock law firm"},{"id":"b7449f56-2d28-48ec-b42d-91e130c79493","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"be133847-fa82-4e64-9af0-51421947ae2c","matterName":"Terrorism","lawyerId":null,"lawyerCompanyName":null},{"id":"c1005b88-8889-4d45-81e4-8e866203538b","matterName":null,"lawyerId":null,"lawyerCompanyName":null},{"id":"c41fccd4-ce30-456d-a92a-b469a5125759","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"c47da885-461b-4f5b-9e4b-9af6527dc7fc","matterName":"Murder","lawyerId":"08697b9a-d024-427e-b101-162725e7444d","lawyerCompanyName":"The Nelson and Murdock law firm"},{"id":"c4ab89fd-5cff-41fe-a65d-4459194039df","matterName":"Arson","lawyerId":null,"lawyerCompanyName":null},{"id":"c893b65e-749f-458c-8c55-45aeeeb2d8d1","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"c8f3fad0-aff3-4fcb-b68c-b619a8ffdbee","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"ca6f5c18-bba0-478c-a150-d979bf831e84","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"cf53ea0b-382a-4ecb-87ee-efdee5312962","matterName":"string","lawyerId":null,"lawyerCompanyName":null},{"id":"d4361770-bde2-4b6c-a6b1-75463cbcf65d","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"decdd95b-0224-4a7d-83c1-4238beeb41c9","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"e709e486-c883-4357-83f5-f4e564328040","matterName":"Drugs Distribution","lawyerId":"54d3f9b8-5b90-4812-8716-9ba807665953","lawyerCompanyName":"Ross &amp; Associates"},{"id":"ede09a47-ecdd-4ce3-9965-45ed2a82ea4c","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"f453eef4-475b-497f-83b6-533f8d24a2d1","matterName":"Drugs Distribution","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"},{"id":"fd2e17e0-d054-4d16-be18-f1e5691c4273","matterName":"Arson","lawyerId":"c00a951d-92cd-41c7-8b8d-e867c1f1f1bc","lawyerCompanyName":"Saul Goodman &amp; Associates"}] 
+ </msg>
+<msg timestamp="20221121 18:33:38.691" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.625" endtime="20221121 18:33:38.691"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response.text}</arg>
+<arg>${TC5_Expected_Result}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20221121 18:33:38.691" endtime="20221121 18:33:38.693"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.696" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.695" endtime="20221121 18:33:38.697"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.694" endtime="20221121 18:33:38.697"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.698" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.698" endtime="20221121 18:33:38.701"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.622" endtime="20221121 18:33:38.701"/>
+</test>
+<test id="s1-t6" name="Get Request should retrieve a LegalMatter (Individual and pagination) via ID" line="53">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.704" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.703" endtime="20221121 18:33:38.705"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${legalmatter_url}/${legalMatterId}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.771" level="INFO">GET Request : url=http://localhost:5000/LegalMatter/595cec12-1177-4e47-98f3-b98811de46c2 (redirected) 
+ path_url=/LegalMatter/595cec12-1177-4e47-98f3-b98811de46c2 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.772" level="INFO">GET Response : url=https://localhost:5001/LegalMatter/595cec12-1177-4e47-98f3-b98811de46c2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"id":"595cec12-1177-4e47-98f3-b98811de46c2","matterName":"Drugs Distribution","lawyerId":"08697b9a-d024-427e-b101-162725e7444d","lawyerCompanyName":"The Nelson and Murdock law firm"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.772" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.705" endtime="20221121 18:33:38.772"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expectedMatterName}</arg>
+<arg>${response.json()}[matterName]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20221121 18:33:38.772" endtime="20221121 18:33:38.773"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.774" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.774" endtime="20221121 18:33:38.775"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.773" endtime="20221121 18:33:38.775"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.702" endtime="20221121 18:33:38.775"/>
+</test>
+<test id="s1-t7" name="Patch Request should Assign a lawyer to a legal matter" line="60">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.776" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.776" endtime="20221121 18:33:38.777"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>accept=*/*</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.777" level="INFO">&amp;{headers} = { Content-Type=application/json | accept=*/* }</msg>
+<status status="PASS" starttime="20221121 18:33:38.777" endtime="20221121 18:33:38.777"/>
+</kw>
+<kw name="PATCH On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${legalmatter_url}</arg>
+<arg>data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerId}"}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.817" level="INFO">PATCH Request : url=http://localhost:5000/LegalMatter (redirected) 
+ path_url=/LegalMatter 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '98'} 
+ body={"ids":["e709e486-c883-4357-83f5-f4e564328040"],"lawyerId":"54d3f9b8-5b90-4812-8716-9ba807665953"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.817" level="INFO">PATCH Response : url=https://localhost:5001/LegalMatter 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"legalMatters":[{"id":"e709e486-c883-4357-83f5-f4e564328040","matterName":"Drugs Distribution","lawyerId":"54d3f9b8-5b90-4812-8716-9ba807665953","lawyerCompanyName":"Ross &amp; Associates"}]} 
+ </msg>
+<msg timestamp="20221121 18:33:38.818" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.778" endtime="20221121 18:33:38.818"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>200</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.819" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.818" endtime="20221121 18:33:38.819"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.818" endtime="20221121 18:33:38.819"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.820" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.819" endtime="20221121 18:33:38.822"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.775" endtime="20221121 18:33:38.822"/>
+</test>
+<test id="s1-t8" name="Patch Request should NOT Assign a lawyer to a legal matter when user uses a non existing LawyerId" line="68">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.823" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.823" endtime="20221121 18:33:38.823"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>Content-Type=application/json</arg>
+<arg>accept=*/*</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20221121 18:33:38.824" level="INFO">&amp;{headers} = { Content-Type=application/json | accept=*/* }</msg>
+<status status="PASS" starttime="20221121 18:33:38.824" endtime="20221121 18:33:38.824"/>
+</kw>
+<kw name="PATCH On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${legalmatter_url}</arg>
+<arg>data={"ids":["${idMatter}"],"lawyerId":"${matterlawyerIdNonExisting}"}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=400</arg>
+<doc>Sends a PATCH request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.856" level="INFO">PATCH Request : url=http://localhost:5000/LegalMatter (redirected) 
+ path_url=/LegalMatter 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '98'} 
+ body={"ids":["e709e486-c883-4357-83f5-f4e564328040"],"lawyerId":"54d3f9b8-5b90-4812-8716-9ba807665954"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.856" level="INFO">PATCH Response : url=https://localhost:5001/LegalMatter 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/problem+json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"type":"https://tools.ietf.org/html/rfc7231#section-6.5.1","title":"Bad Request","status":400,"traceId":"00-5537d6cd20015648bc02f611f9d20a99-6b793e6446794642-00"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.856" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.824" endtime="20221121 18:33:38.856"/>
+</kw>
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.856" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.856" endtime="20221121 18:33:38.857"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.822" endtime="20221121 18:33:38.858"/>
+</test>
+<test id="s1-t9" name="Get Request should NOT retrieve a LegalMatter (Individual and pagination) via ID" line="75">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.859" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.859" endtime="20221121 18:33:38.859"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${legalmatter_url}/${legalMatterIdNonExisting}</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.901" level="INFO">GET Request : url=http://localhost:5000/LegalMatter/595cec12-1177-4e47-98f3-b98811de4633 (redirected) 
+ path_url=/LegalMatter/595cec12-1177-4e47-98f3-b98811de4633 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.901" level="INFO">GET Response : url=https://localhost:5001/LegalMatter/595cec12-1177-4e47-98f3-b98811de4633 
+ status=404, reason=Not Found 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/problem+json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"type":"https://tools.ietf.org/html/rfc7231#section-6.5.4","title":"Not Found","status":404,"traceId":"00-24a8bed265962d4bbcde1819a950868f-64e18a6a9c07884f-00"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.901" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.859" endtime="20221121 18:33:38.901"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>404</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.903" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.902" endtime="20221121 18:33:38.903"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.902" endtime="20221121 18:33:38.903"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.858" endtime="20221121 18:33:38.903"/>
+</test>
+<test id="s1-t10" name="Get Request should NOT return a specific lawyer when user uses a non existing Lawyer ID" line="81">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>my_session</arg>
+<arg>${HOST1}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221121 18:33:38.904" level="INFO">Creating Session using : alias=my_session, url=http://localhost:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221121 18:33:38.904" endtime="20221121 18:33:38.905"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>my_session</arg>
+<arg>/${lawyer_url}/${matterlawyerIdNonExisting}</arg>
+<arg>expected_status=404</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221121 18:33:38.943" level="INFO">GET Request : url=http://localhost:5000/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665954 (redirected) 
+ path_url=/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665954 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221121 18:33:38.944" level="INFO">GET Response : url=https://localhost:5001/Lawyer/54d3f9b8-5b90-4812-8716-9ba807665954 
+ status=404, reason=Not Found 
+ headers={'Date': 'Mon, 21 Nov 2022 05:33:38 GMT', 'Content-Type': 'application/problem+json; charset=utf-8', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked'} 
+ body={"type":"https://tools.ietf.org/html/rfc7231#section-6.5.4","title":"Not Found","status":404,"traceId":"00-b437ac32701e5643b86df3b54ec0154b-2507e3a32acac34d-00"} 
+ </msg>
+<msg timestamp="20221121 18:33:38.944" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.905" endtime="20221121 18:33:38.944"/>
+</kw>
+<kw name="Response Status Code Should Be" library="assertions">
+<arg>${response}</arg>
+<arg>404</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>${status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20221121 18:33:38.946" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20221121 18:33:38.945" endtime="20221121 18:33:38.947"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.944" endtime="20221121 18:33:38.947"/>
+</kw>
+<tag>Smoke</tag>
+<status status="PASS" starttime="20221121 18:33:38.904" endtime="20221121 18:33:38.947"/>
+</test>
+<kw name="Run Keyword" library="BuiltIn" type="TEARDOWN">
+<arg>Cleanup Sessions</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<kw name="Cleanup Sessions">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20221121 18:33:38.949" level="INFO">Deleting All Sessions</msg>
+<status status="PASS" starttime="20221121 18:33:38.949" endtime="20221121 18:33:38.952"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.948" endtime="20221121 18:33:38.952"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:38.948" endtime="20221121 18:33:38.952"/>
+</kw>
+<status status="PASS" starttime="20221121 18:33:37.871" endtime="20221121 18:33:38.953"/>
+</suite>
+<statistics>
+<total>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="10" fail="0" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="10" fail="0" skip="0" id="s1" name="LawVuScenarios">LawVuScenarios</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
